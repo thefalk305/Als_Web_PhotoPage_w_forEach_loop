@@ -1,0 +1,76 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<title>Al's PhotoPage with forEach loop</title>
+
+<meta content="Falkman family history site." name="description" />
+<meta content="family history, ancestors, family, parents, grand parents, aunts & uncles, sibling, brothers & sisters, great-grandparents, cousins" name="keywords" />
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+<meta content="en-us" http-equiv="Content-Language" />
+<meta content="Allen Falkman" name="author"/>
+<meta content="General" name="rating" />
+<meta content="no" http-equiv="imagetoolbar" />
+<meta content="Copyright © 2025, Allen Falkman All Rights Reserved" name="copyright" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/photos.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+<div id="container">
+	
+	<div class="Banner"> 
+    <img src="photoimages/Banner.png" style="width: 100%">
+  </div> 
+
+  <!-- Top navigation menu -->
+  <script>
+    fetch("./html/TopNavMenu.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("top-nav-menu").innerHTML = html;
+      });
+  </script>
+  <!-- How this script works:
+    This script fetches the 'top navigation menu' HTML from an external file ("./html/TopNavMenu.html") and injects it into the page at the element with id="top-nav-menu" (just below the script).
+    This allows for easy updates to the navigation menu without modifying the main HTML file.
+  -->
+  <div id="top-nav-menu" style="width: 100%; height: 70"></div>
+</div>
+
+<h1>This is going to be our blog page</h1>
+
+
+<!-- Clock script was here -->
+<!-- Now contained in scripts.js. -->
+<!-- Adds the back to top link to your website. Replaces the text with an image of your choosing.  
+ Add your own image url where it says ADD URL HERE. -->
+
+<a href="#" id="back-to-top" class="back-to-top" >
+  <img src="photoimages/Scroll-1-t.png" >
+</a>  
+
+<!-- Scroll to Top script was here --> 
+<!-- Now contained in scripts.js. -->
+
+  </div>
+  <b style="text-align: center; display: block;" >
+    <a href="javascript:history.back()">Return</a>
+  </b>
+  <br>
+
+<!-- This script inserts the common footer here. -->
+  <script>
+    fetch("./html/footer.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("footer").innerHTML = html;
+      });
+  </script>
+  <div id="footer"></div>
+
+<!-- flipCard.js contains the code that generates all the flip-card elements inserted at <div id="gallery"> above. -->
+<script type="module" src="./js/flipCard.js"></script>
+</body>
+
+</html>

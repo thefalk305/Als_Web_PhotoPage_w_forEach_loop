@@ -70,6 +70,8 @@ body img {
 }
 
 .flip-card-back a {
+  display: flex;
+  justify-content: center;
   color: #7bff00; /* This sets the link color */
   text-decoration: none; /* Optional: removes underline */
 }
@@ -79,29 +81,62 @@ body img {
 }
 
 /* .flip-card {
-  margin-bottom: 320px; /* Adds space below each card */
+  margin-bottom: 320px;
 } */
 
-.grid-gallery {
+#grid-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 10px;
 }
 
-.grid-gallery img {
+#grid-gallery img {
   width: 100%;
   height: auto;
 }
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 50px;
+#gallery {
   display: flex;
-    /* flex-direction: row; */
-    flex-wrap: wrap;
-    justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center; /* or space-between / space-evenly */
+  gap: 50px;
+  width: 100%;
+  max-width: 1200px; /* Optional, controls layout width */
+  margin: 0 auto;     /* Center the gallery on the page */
+}
 
+.flip-card {
+  margin: 0 auto;
+}
+
+/*==============all site links==============*/
+a:link {
+	font-weight: bold;
+	color: red;
+	background: transparent;
+	text-decoration: underline;
+}
+
+a:visited {
+	font-weight: bold;
+	color: purple;
+	background: transparent;
+	padding: 0px;
+	text-decoration: underline wavy rgb(1, 1, 22) 2px;
+}
+
+a:hover {
+	font-weight: bold;
+	text-decoration : none;
+    background: #9da8ce;
+	color: #eee56d;
+}
+
+a:active {
+	font-weight: bold;
+	text-decoration : underline;
+	background: #BFDFE2;
+	color: #726A40;
 }
 
 /* =================Styles for heading tags =============== */
@@ -119,6 +154,8 @@ h2 {
 	font-size: 1em;
 }
 h3 {
+  display: flex;
+  justify-content: center;
 	font-size: .9em;
 }
 h4 {
@@ -135,4 +172,42 @@ h4 {
 #footer p {
 	margin-top: 0px;
 	margin-bottom: 0px;
+}
+
+#gallery p::first-letter {
+  margin-left: 1em;
+  font-size: 1.5em;
+  color: #888; /* or any color from your palette */
+  font-weight: bold;
+}
+
+.back-to-top {
+    /* Remove the background color */
+    color: #FFFFFF;
+    opacity: 0;
+    transition: opacity .6s ease-in-out;
+    z-index: 999;
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+  
+    /* Change the width and height to match your image dimensions*/ 
+    width: 60px;
+    height: 60px;
+    box-sizing: border-box;
+    border-radius: 0%;
+}
+  
+.back-to-top a {
+  display: inline; 
+  background: transparent;
+}
+  
+  .back-to-top.show {
+      opacity: 1;
+}
+
+b {
+  text-align: center; 
+  display: block;
 }

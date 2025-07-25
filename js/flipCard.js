@@ -2,11 +2,11 @@
 
 // ✅ Import the array of flip-card data from a separate file.
 // This array holds information like image paths, names, biographies, etc.
-import { flipCards } from './data.js';
+import { flipCards } from './gallery-data.js';
 
 // ✅ Find the HTML element where all flip cards will be inserted.
 // This assumes your HTML file has: <div id="card-container"></div>
-const container = document.getElementById("card-container");
+const container = document.getElementById("gallery");
 
 // ✅ Loop through each card in the flipCards array and create a visual card.
 flipCards.forEach(card => {
@@ -18,7 +18,7 @@ flipCards.forEach(card => {
   // This includes:
   // - The front of the card with an image and name
   // - The back of the card with a description and a biography link
-  // - Tick marks (`) are used to allow multi-line strings that can also contain variables (i.e. ${card.image}).
+  // Tick marks (`) are used to allow multi-line strings that can also contain variables (i.e. ${card.image}).
   cardElement.innerHTML = `
     <div class="flip-card-inner">
       <div class="flip-card-front">

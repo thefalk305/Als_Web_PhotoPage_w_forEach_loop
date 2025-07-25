@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "jsdom": "^26.1.0"
+  },
+  "devDependencies": {
+    "exceljs": "^4.4.0",
+    "fs-extra": "^11.2.0",
+    "json2csv": "^6.0.0"
+  },
+
+  "name": "PhotoPages",
+  "version": "1.0.0",
+  "description": "A simple photo gallery application",
+  "main": "index.js",
+  "scripts": {
+    "build-data": "python py/Excel_to_JSON.py",
+    "build-gallery": "node js/buildPhotoPagesData.js",
+    "build-all": "npm run build-data && npm run build-gallery",
+    "build-gallery-data": "node js/build-gallery-data.js"
+  }
+
+}

@@ -1,308 +1,79 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
-<title>Al's PhotoPage with .js file</title>
+  <title>Al's PhotoPage with forEach loop</title>
 
-<meta content="Falkman family history site." name="description" />
-<meta content="family history, ancestors, family, parents, grand parents, aunts & uncles, sibling, brothers & sisters, great-grandparents, cousins" name="keywords" />
-<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
-<meta content="en-us" http-equiv="Content-Language" />
-<meta content="Allen Falkman" name="author"/>
-<meta content="General" name="rating" />
-<meta content="no" http-equiv="imagetoolbar" />
-<meta content="Copyright © 2025, Allen Falkman All Rights Reserved" name="copyright" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="css/photos.css" rel="stylesheet" type="text/css" />
-<script src="/scripts.js" defer></script>
+  <meta content="Falkman family history site." name="description" />
+  <meta content="family history, ancestors, family, parents, grand parents, aunts & uncles, sibling, brothers & sisters, great-grandparents, cousins" name="keywords" />
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  <meta content="en-us" http-equiv="Content-Language" />
+  <meta content="Allen Falkman" name="author"/>
+  <meta content="General" name="rating" />
+  <meta content="no" http-equiv="imagetoolbar" />
+  <meta content="Copyright © 2025, Allen Falkman All Rights Reserved" name="copyright" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/photos.css" rel="stylesheet" type="text/css" />
+  <script src="./js/scripts.js" defer></script>
 
 </head>
 <body>
 
-  <div class="content">
-  </div>
-
-<body style="background-image: url('photoimages/parchment.jpg'); background-repeat: repeat; 
-background-size: cover;">
-</body>
-
-<div id="container">
-	
-	<div class="Banner"> 
-    <img src="photoimages/Banner.png" style="width: 100%">
+  <div id="container">
+    
+    <div class="Banner"> 
+      <img src="photoimages/Banner.png">
     </div> 
-<div id="topmenu" style="width: 100%; height: 70">
-	
-	
-		<table border="0" width="100%">
-			<tr>
-				<td width="25%">&nbsp;</td>
-				<td width="50%" align="center">
-				<a href="Blog.html" title="Blog Page.">Our Blog</a>&#8194;&#8194;
-				<a href="https://freepages.family.rootsweb.ancestry.com/~falkman/" title="Family Tree.">
-				Family Tree</a>&#8194;&#8194;
-				<a title="Family Photos." href="photopages.html">Family Photos</a>&#8194;&#8194;
-				<a href="links.html" title="Links.">Links</a>
-			 	</td>
-				<th width="25%" align="right"><div id="clockbox"></div></th>
-			</tr>
-		</table>
-</div>
+
+    <!-- Top navigation menu -->
+    <script>
+      fetch("./html/TopNavMenu.html")
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById("top-nav-menu").innerHTML = html;
+        });
+    </script>
+    <!-- How this script works:
+      This script fetches the 'top navigation menu' HTML from an external file ("./html/TopNavMenu.html") and injects it into the page at the element with id="top-nav-menu" (just below the script).
+      This allows for easy updates to the navigation menu without modifying the main HTML file.
+    -->
+    <div id="top-nav-menu"></div>
+  </div>
 
   <h1>My Family Photo Page</h1>
- 
-  <div class="gallery">
- 
-<div class="flip-card">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <img src="photoimages/Per Noren (Karin's father).jpg" alt="Pehr Noren's Photo" />
-      <h3>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Pehr Noren</h3>
-    </div>
-    <div class="flip-card-back">
-      <p>&emsp;Pehr Noren, the father of Karin Falkman (nee Noren), who is the mother of Herman 
-        Falkman, who is the father of Allen B Falkman, my Dad.</p>
-      <a href="biograph/PNbio.html">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;View Biography</a>
-    </div>
-  </div>
-</div>
-<div class="flip-card">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <img src="photoimages/AnnPalmer.jpg" alt="Ann Palmer's Photo" />
-      <h3>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Anna Palmer</h3>
-    </div>
-    <div class="flip-card-back">
-      <p>&emsp;Anne Palmer is the mother of Margaret Allen (nee Carroll). Who in turn is the 
-        mother of Mary Falkman (nee Allen). In turn Mary Falkman is the mother of Allen Falkman Sr., 
-        my Dad</p>
-      <a href="biograph/APbio.html">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;View Biography</a>
-    </div>
-  </div>
-</div>
-<div class="flip-card">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <img src="photoimages/MargCarroll5.jpg" alt="Margaret Carroll's Photo" />
-      <h3>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Margaret Carroll</h3>
-    </div>
-    <div class="flip-card-back">
-      <p>&emsp;Margaret Carroll, the wife to Gerald Allen. And mother of Mary Allen. Who in turn is the mother 
-        of Allen Falkman Sr., my Dad.
-      </p>
-      <a href="biograph/MCbio.html">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;View Biography</a>
-    </div>
-  </div>
-</div>
-<div class="flip-card">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <img src="photoimages/ChristinaNoren.jpg" alt="Christina Noren's Photo" />
-      <h3>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Christina Noren</h3>
-    </div>
-    <div class="flip-card-back">
-      <p>&emsp;Christina Noren (nee Andersdotter), is the step-mother of Karin Noren. Mother of Herman Falkman. Who 
-        in turn is the father of Allen Falkman Sr., my Dad</p>
-      <a href="biograph/CNbio.html">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;View Biography</a>
-    </div>
-  </div>
-</div>
-<div class="flip-card">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <img src="photoimages/NilsFalkman.jpg" alt="Peter Falkman's Photo" />
-      <h3>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Nils Pit Falkman</h3>
-    </div>
-    <div class="flip-card-back">
-      <p>&emsp;Nils Pit Falkman. Is the father of Herman Falkman. Who in turn is the father of Allen 
-        Falkman Sr., my Dad.
-      </p>
-      <a href="biograph/PFbio.html">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;View Biography</a>
-    </div>
-  </div>
-</div>
-<div class="flip-card">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <img src="photoimages/KarenFalkman.jpg" alt="Karen Falkman's Photo" />
-      <h3>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Karen Falkman</h3>
-    </div>
-    <div class="flip-card-back">
-      <p>&emsp;Karen Falkman (nee Noren) is the wife of Peter Falkman. Who's son, Herman is the 
-        father of Allen Falkman Sr., my Dad.
-      </p>
-      <a href="biograph/KFbio.html">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;View Biography</a>
-    </div>
-  </div>
-</div>
-<div class="flip-card">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <img src="photoimages/JohnLufgren.jpg" alt="John Lufgren's Photo" />
-      <h3>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;John Lufgren</h3>
-    </div>
-    <div class="flip-card-back">
-      <p>&emsp;John Lufgren is the older brother of Nils Pit Falkman. Who is my great-grandfather.
-      </p>
-      <a href="biograph/KFbio.html">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;View Biography</a>
-    </div>
-  </div>
-</div>
-<div class="flip-card">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <img src="photoimages/Willa-Kendt.jpg" alt="Willamina Kendt's Photo" />
-      <h3>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Willamina Kendt</h3>
-    </div>
-    <div class="flip-card-back">
-      <p>&emsp;Willamina Kindt is one of the niece's of Mary Allen. Mary Allen in turn is the mother of Allen Fallkman Sr., my dad.
-      </p>
-      <a href="biograph/WKbio.html">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;View Biography</a>
-    </div>
-  </div>
-</div>
-<div class="flip-card">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <img src="photoimages/ElllenAllen.jpg" alt="Ellen Allen's Photo" />
-      <h3>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Ellen Allen</h3>
-    </div>
-    <div class="flip-card-back">
-      <p>&emsp;Ellen Allen is the wife of Dennis Allen, and Dennis is the father of Gerald Allen. 
-        Now Gerald Allen is Mary Falkman's (nee Allen) father. And Mary is Allen Falkman Sr. mother.
-      </p>
-      <a href="biograph/EAbio.html">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;View Biography</a>
-    </div>
-  </div>
-</div>
-<div class="flip-card">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <img src="photoimages/BillAllen.jpg" alt="William Allen's Photo" />
-      <h3>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;William Allen</h3>
-    </div>
-    <div class="flip-card-back">
-      <p>&emsp;William Allen is the brother to Mary Falkman (nee Allen). And she in-turn is the 
-        mother of Allen Falkman Sr., my father.
-      </p>
-      <a href="biograph/KFbio.html">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;View Biography</a>
-    </div>
-  </div>
-</div>
-<div class="flip-card">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <img src="photoimages/MarthaNoren.jpg" alt="Martha Noren's Photo" />
-      <h3>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Martha Noren</h3>
-    </div>
-    <div class="flip-card-back">
-      <p>&emsp;Martha Noren is Karen Falkman (nee Noren) half sister.
-      </p>
-      <a href="biograph/MNbio.html">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;View Biography</a>
-    </div>
-  </div>
-</div>
-<div class="flip-card">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <img src="photoimages/AnnaNoren.jpg" alt="Anna Noren's Photo" />
-      <h3>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Anna Noren</h3>
-    </div>
-    <div class="flip-card-back">
-      <p>&emsp;Anna Noren is the sister of Karen Falkman (nee Noren), who is the wife of Peter 
-        Falkman. Who's son, Herman is the father of Allen Falkman Sr., my Dad.
-      </p>
-      <a href="biograph/ANbio.html">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;View Biography</a>
-    </div>
-  </div>
-</div>
-<div class="flip-card">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <img src="photoimages/TheodoreFalkman.png" alt="Theodore Falkman's Photo" />
-      <h3>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Theodore Falkman</h3>
-    </div>
-    <div class="flip-card-back">
-      <p>&emsp;Theodore Falkman is one of the brothers of Herman Falkman. Who's son, Allen is, my Dad.
-      </p>
-      <a href="biograph/TFbio.html">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;View Biography</a>
-    </div>
-  </div>
-</div>
-<div class="flip-card">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <img src="photoimages/James Carroll.jpg" alt="James Carroll's Photo" />
-      <h3>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;James Carroll</h3>
-    </div>
-    <div class="flip-card-back">
-      <p>&emsp;James Carroll is an uncle of Mary Falkman (nee Allen). Who in turn is the mother of
-        Allen Falkman, my father.
-      </p>
-      <a href="biograph/JCbio.html">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;View Biography</a>
-    </div>
-  </div>
-</div>
-<div class="flip-card">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <img src="photoimages/LarettaAllen.png" alt="Laretta Allen's Photo" />
-      <h3>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Laretta Allen</h3>
-    </div>
-    <div class="flip-card-back">
-      <p>&emsp;Laretta Allen is the older sister to Mary Allen. My fathers mother. In other words
-        my grand-mother.
-      </p>
-      <a href="biograph/LAbio.html">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;View Biography</a>
-    </div>
-  </div>
-</div>
 
-<!-- Clock script was here -->
+  <!-- flipCard elements are inserted here at id="gallery" -->
+  <div id="gallery"></div>
 
-<style>
-.back-to-top {
-    /* Remove the background color */
-    color: #FFFFFF;
-    opacity: 0;
-    transition: opacity .6s ease-in-out;
-    z-index: 999;
-    position: fixed;
-    right: 25px;
-    bottom: 25px;
-  
-    /* Change the width and height to match your image dimensions*/ 
-    width: 60px;
-    height: 60px;
-    box-sizing: border-box;
-    border-radius: 0%;
-}
-  
-  .back-to-top.show {
-       opacity: 1;
-  }
-</style>
+  <!-- Clock script was here -->
+  <!-- Now contained in scripts.js. -->
 
-<!-- Adds the back to top link to your website. Replaces the text with an image of your choosing. 
- Add your own image url where it says ADD URL HERE. -->
+  <!-- Adds the back to top link to your website. Replaces the text with an image of your choosing.  
+  Add your own image url where it says ADD URL HERE. -->
 
-<a href="#" id="back-to-top" class="back-to-top" style="display: inline; background: transparent;">
-  <img src="photoimages/Scroll-1-t.png" >
-</a>  
+  <a href="#" id="back-to-top" class="back-to-top" >
+    <img src="photoimages/Scroll-1-t.png" >
+  </a>  
 
-<!-- Scroll to Top script was here -->
+  <!-- Scroll to Top script was here --> 
+  <!-- Now contained in scripts.js. -->
 
-  </div>
-  <b style="text-align: center; display: block;" >
-    <a href="photopages.html">Return</a>
+  <b>
+    <a href="javascript:history.back()">Return</a>
   </b>
   <br>
-  <div id="footer">
-		<p>Copyright 2025 | All Rights Reserved</p>
-		<p class="smtxt">Template Design:
-		<a href="https://www.genealogy-web-creations.com/" title="Genealogy Web Creations.">
-		Genealogy Web Creations</a></p></div>
-</div>
 
+  <!-- Insert the common footer. -->
+  <script>
+    fetch("./html/footer.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("footer").innerHTML = html;
+      });
+  </script>
+  <div id="footer"></div>
+
+  <!-- flipCard.js contains the code that generates all the flip-card elements inserted at <div id="gallery"> above. -->
+  <script type="module" src="./js/flipCard.js"></script>
 </body>
 
 </html>
