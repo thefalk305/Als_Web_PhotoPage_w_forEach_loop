@@ -12,43 +12,79 @@
   <meta content="no" http-equiv="imagetoolbar" />
   <meta content="Copyright © 2025, Allen Falkman All Rights Reserved" name="copyright" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link href="css/photos.css" rel="stylesheet" type="text/css" />
+
   <script src="./js/scripts.js" defer></script>
+
+  <!-- createFlipCards.js contains the code that generates all the flip-card elements inserted at <div id="gallery"> above. -->
+  <script type="module" src="./js/createFlipCards.js"></script>
+  <script type="module" src="./js/submit-flip-cards.js"></script>
+  <script type="module" src="./js/Add-Delete_Forms.js"></script>
 
 </head>
 <body>
 
   <div id="container">
     
-    <div class="Banner"> 
-      <img src="photoimages/Banner.png">
-    </div> 
+  <!-- Insert the common header-->
+  <div id="header"></div>
+  <script src="./js/loadHeader.js"></script>
 
-    <!-- Top navigation menu -->
-    <script>
-      fetch("./html/TopNavMenu.html")
-        .then(res => res.text())
-        .then(html => {
-          document.getElementById("top-nav-menu").innerHTML = html;
-        });
-    </script>
-    <!-- How this script works:
-      This script fetches the 'top navigation menu' HTML from an external file ("./html/TopNavMenu.html") and injects it into the page at the element with id="top-nav-menu" (just below the script).
-      This allows for easy updates to the navigation menu without modifying the main HTML file.
-    -->
-    <div id="top-nav-menu"></div>
+  </div>
+  <h1>My Family Photo Page</h1>
+  <!-- Display Add, Edit and Delete Form buttons. -->
+  <div style="display: flex; align-items: center; justify-content: space-around;">
+    <button id="open-add-form-btn">Add a New Card</button>
+    <button id="open-edit-form-btn">Edit an Existing Card</button>  
+    <button id="open-delete-form-btn">Delete an Existing Card</button>
   </div>
 
-  <h1>My Family Photo Page</h1>
+  <!-- Form to add/edit cards to the Gallery -->
+  <form id="gallery-form" enctype="multipart/form-data" style="display: none;">
+    <h2>📸 Share a Family Memory</h2>
 
-  <!-- flipCard elements are inserted here at id="gallery" -->
+    <div id="edit-select-container" style="display: none;">
+      <label for="entry-select">Choose entry to edit:</label>
+      <select id="entry-select"></select>
+    </div>
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" rows="4" required></textarea>
+
+    <label for="imageFile">Upload Photo ( .jpg, .jpeg, .png ):</label>
+    <input type="file" id="imageFile" name="image" accept=".jpg,.jpeg,.png" required />
+
+    <label for="bioFile">Upload Biography (.txt):</label>
+    <input type="file" id="bioFile" name="bio" accept=".txt" required />
+
+    <button type="submit">Submit to Gallery</button>
+    <button type="button" id="cancelBtn">Cancel</button>
+  </form>
+
+  <!-- Form to delete cards from the Gallery -->
+  <!-- <div id="delete-form-container" style="display: none;"> -->
+    <form id="delete-form" style="display: none;">
+    <h2>🗑️ Remove a Family Entry</h2>
+      <label for="name-select">Select Name to Remove:</label>
+      <select id="name-select"></select>
+
+      <label for="delete-password">Password:</label>
+      <input type="password" id="delete-password" required />
+
+      <button type="submit">Delete Entry</button>
+      <button type="button" id="deleteCancelBtn">Cancel</button>
+    </form>
+  <!-- </div> -->
+
+  <!-- createFlipCards elements are inserted here at id="gallery" -->
   <div id="gallery"></div>
 
   <!-- Clock script was here -->
   <!-- Now contained in scripts.js. -->
-
-  <!-- Adds the back to top link to your website. Replaces the text with an image of your choosing.  
-  Add your own image url where it says ADD URL HERE. -->
 
   <a href="#" id="back-to-top" class="back-to-top" >
     <img src="photoimages/Scroll-1-t.png" >
@@ -57,23 +93,9 @@
   <!-- Scroll to Top script was here --> 
   <!-- Now contained in scripts.js. -->
 
-  <b>
-    <a href="javascript:history.back()">Return</a>
-  </b>
-  <br>
-
   <!-- Insert the common footer. -->
-  <script>
-    fetch("./html/footer.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("footer").innerHTML = html;
-      });
-  </script>
   <div id="footer"></div>
+  <script src="./js/loadFooter.js"></script>
 
-  <!-- flipCard.js contains the code that generates all the flip-card elements inserted at <div id="gallery"> above. -->
-  <script type="module" src="./js/flipCard.js"></script>
 </body>
-
 </html>

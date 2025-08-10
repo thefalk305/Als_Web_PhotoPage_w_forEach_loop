@@ -1,12 +1,15 @@
+// This script extracts the original 'flip-card' elements from 'gallery.html' and produces a .json file (flip-card-data.json) which is used to build the new 'flip-card' elements for PhotoPages.html.
+
 const fs = require('fs');
 const { JSDOM } = require('jsdom');
+const path = require('path');
 
-// Load your HTML file
-const htmlContent = fs.readFileSync('gallery.html', 'utf8');
+// Load gallery.html
+const htmlContent = fs.readFileSync('./js/gallery.html', 'utf8');
 const dom = new JSDOM(htmlContent);
 const document = dom.window.document;
 
-// Extract data from flip-card elements
+// Extract flip-card data
 const flipCards = Array.from(document.querySelectorAll('.flip-card')).map(card => {
   const img = card.querySelector('.flip-card-front img');
   const nameRaw = card.querySelector('.flip-card-front h3')?.textContent || '';
@@ -22,19 +25,8 @@ const flipCards = Array.from(document.querySelectorAll('.flip-card')).map(card =
   };
 });
 
-// Manual serialization (no quoted keys)
-const formatted = flipCards.map(card => {
-  return `  {
-    image: "${card.image}",
-    alt: "${card.alt}",
-    name: "${card.name}",
-    description: "${card.description}",
-    bioLink: "${card.bioLink}"
-  }`;
-}).join(',\n');
+// Convert to JSON and write to file
+const outputPath = path.join(process.cwd(), 'flip-card-data.json');
+fs.writeFileSync(outputPath, JSON.stringify(flipCards, null, 2), 'utf8');
 
-const output = `export const flipCards = [\n${formatted}\n];`;
-
-console.log('Writing to:', __dirname + '\\gallery-data.js');
-fs.writeFileSync('gallery-data.js', output);
-console.log('✅ gallery-data.js created successfully!');
+console.log('✅ flip-card-data.json created successfully at:', outputPath);

@@ -13,29 +13,17 @@
 <meta content="Copyright © 2025, Allen Falkman All Rights Reserved" name="copyright" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="css/photos.css" rel="stylesheet" type="text/css" />
+  <script src="./js/scripts.js" defer></script>
 
 </head>
 
 <body>
 <div id="container">
 	
-	<div class="Banner"> 
-    <img src="photoimages/Banner.png" style="width: 100%">
-  </div> 
+  <!-- Insert the common header-->
+  <div id="header"></div>
+  <script src="./js/loadHeader.js"></script>
 
-  <!-- Top navigation menu -->
-  <script>
-    fetch("./html/TopNavMenu.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("top-nav-menu").innerHTML = html;
-      });
-  </script>
-  <!-- How this script works:
-    This script fetches the 'top navigation menu' HTML from an external file ("./html/TopNavMenu.html") and injects it into the page at the element with id="top-nav-menu" (just below the script).
-    This allows for easy updates to the navigation menu without modifying the main HTML file.
-  -->
-  <div id="top-nav-menu" style="width: 100%; height: 70"></div>
 </div>
 
 <h1>This is going to be our blog page</h1>
@@ -53,24 +41,10 @@
 <!-- Scroll to Top script was here --> 
 <!-- Now contained in scripts.js. -->
 
-  </div>
-  <b style="text-align: center; display: block;" >
-    <a href="javascript:history.back()">Return</a>
-  </b>
-  <br>
-
-<!-- This script inserts the common footer here. -->
-  <script>
-    fetch("./html/footer.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("footer").innerHTML = html;
-      });
-  </script>
+  <!-- Insert the common footer. -->
   <div id="footer"></div>
+  <script src="./js/loadFooter.js"></script>
 
-<!-- flipCard.js contains the code that generates all the flip-card elements inserted at <div id="gallery"> above. -->
-<script type="module" src="./js/flipCard.js"></script>
 </body>
 
 </html>
